@@ -145,13 +145,15 @@ canvas.addEventListener('click', e => {
         if (grid[i][j] == '') {
             grid[i][j] = player1
             if (checkWinner(grid)) {
-                console.log(grid)
-                console.log(checkWinner(grid))
+                document.getElementById("text").innerHTML = checkWinner(grid)
                 return
             }
             makeNextMove(player2)
             winner = checkWinner(grid)
-            console.log(winner)
+            if (winner){
+                document.getElementById("text").innerHTML = winner + " heeft gewonnen"
+            }
+            
         }
     }
 
@@ -160,6 +162,7 @@ canvas.addEventListener('click', e => {
 
 function makeNextMove(ai) {
 
+    console.time()
     let bestScore = -Infinity
     let move
     for (let i = 0; i < size; i++) {
@@ -178,6 +181,7 @@ function makeNextMove(ai) {
         }
     }
     grid[move.i][move.j] = ai
+    console.timeEnd();
 }
 
 
