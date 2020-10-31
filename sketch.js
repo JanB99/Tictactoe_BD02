@@ -153,11 +153,8 @@ canvas.addEventListener('click', e => {
             if (winner){
                 document.getElementById("text").innerHTML = winner + " heeft gewonnen"
             }
-            
         }
     }
-
-
 })
 
 function makeNextMove(ai) {
@@ -176,7 +173,6 @@ function makeNextMove(ai) {
                     bestScore = score
                     move = { i, j }
                 }
-
             }
         }
     }
@@ -191,7 +187,6 @@ function checkWinner(grid) {
         if (grid[i][0] != '' && grid[i][0] == grid[i][1] && grid[i][1] == grid[i][2]) {
             return grid[i][0];
         }
-
         if (grid[0][i] != '' && grid[0][i] == grid[1][i] && grid[1][i] == grid[2][i]) {
             return grid[0][i];
         }
